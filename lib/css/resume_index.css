@@ -1,0 +1,130 @@
+body {
+    /* font-family: Arial, sans-serif; */
+    font-family: arch;
+    margin: 20px;
+    line-height: 1.6;
+    font-size: 16px;
+    background: none;
+    /* height: 100%; */
+    /* background: antiquewhite; */
+    /* background: linen; */
+    /* width: 98%; */
+}
+
+html {
+    /* Fix ห้ามเลื่อน พอดีจอ */
+    background-attachment: fixed;
+    /* background-image: url('../img/wallpaper.jpg'); */
+    background-image: linear-gradient(aliceblue, linen);
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    border: 1px solid #ddd;
+    padding: 20px;
+    background: white;
+}
+
+
+.profile-img {
+
+    /* width: 150px;
+    border-radius: 50%; */
+
+    vertical-align: middle;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+}
+
+.section {
+    margin-top: 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    border-bottom: 1px solid #8a7e7e;
+    /* border-bottom: 1px solid #ddd; */
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    font-size: 18px;
+}
+
+.section-title-work {
+    /* font-weight: bold; */
+    border-bottom: 1px solid #8a7e7e;
+    /* border-bottom: 1px solid #ddd; */
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    /* font-size: 16px; */
+}
+
+.hr {
+    font-weight: bold;
+    border-bottom: 3px solid #8a7e7e;
+    /* border-bottom: 3px solid #ddd; */
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+}
+
+.left-column {
+    vertical-align: top;
+    width: 29%;
+    display: inline-block;
+}
+
+.left-column {
+    margin-right: 2%;
+    margin-left: 1em;
+}
+
+
+.center-column {
+    vertical-align: top;
+    width: 2%;
+    display: inline-block;
+}
+
+.right-column {
+    vertical-align: top;
+    width: 58%;
+    display: inline-block;
+}
+
+ul {
+    /* list-style-type: none; */
+    padding-left: 2em;
+}
+
+ul li {
+    margin-bottom: 5px;
+}
+
+.contact-info {
+    padding-left: 2em;
+    margin-top: 10px;
+}
+
+.profile-text {
+    text-align: justify;
+}
+
+
+a {
+    text-decoration: none !important;
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+.remark-text {
+    color: red;
+    font-size: 14px;
+}
+
+section {
+    scroll-margin-top: 5em;
+}
