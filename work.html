@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - ประวัติการทำงาน</title>
     <link rel="icon" href="resume/profile_person.jpg">
-    
+
     <!-- css -->
     <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="lib/css/resume_index.css">
@@ -34,18 +34,77 @@
             </div>
         </div>
     </nav>
+    <style>
+        .image-gallery {
+            text-align: center;
+        }
 
+        .thumbnail {
+            cursor: pointer;
+            max-width: 200px;
+            border: 2px solid #ccc;
+            margin: 10px;
+        }
+
+        .big-image {
+            display: none;
+            max-width: 80%;
+            max-height: 80%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            background-color: #fff;
+            /* border: 1px solid #000; */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            background: #fff;
+            border: none;
+        }
+
+        .mini-img {
+            cursor: pointer !important;
+            margin: 3px;
+            border: 1px solid black;
+        }
+    </style>
+
+
+    <div class="big-image" id="bigImageContainer">
+        <button class="close-btn" onclick="closeBigImage()">X</button>
+        <img id="bigImage" src="" alt="Big Image" style="width: 100%;">
+    </div>
+
+    <script>
+        function showBigImage(imageSrc) {
+            var bigImage = document.getElementById('bigImage');
+            bigImage.src = imageSrc;
+
+            var bigImageContainer = document.getElementById('bigImageContainer');
+            bigImageContainer.style.display = 'block';
+        }
+
+        function closeBigImage() {
+            var bigImageContainer = document.getElementById('bigImageContainer');
+            bigImageContainer.style.display = 'none';
+        }
+    </script>
     <div class="container" style="margin-top: 5em;">
         <div class="section">
             <div class="section-title">ประวัติการทำงานที่ผ่านมา</div>
-
             <ul>
                 <li><a href="#bizpotential">บริษัท บิซโพเทนเชียล จำกัด</a></li>
-                <li><a href="#cityvariety">บริษัท ซิตี้วาไรตี้ คอร์เปอเรชั่น จำกัด
-                        (Contract)</a></li>
+                <li><a href="#cityvariety">บริษัท ซิตี้วาไรตี้ คอร์เปอเรชั่น จำกัด (Contract)</a></li>
             </ul>
-
-            <!-- Bizpotential -->
             <div class="hr"></div>
             <br>
             <section id="bizpotential" class="work-list" style="display: block;">
@@ -207,34 +266,28 @@
                                     </p>
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_1.png"
-                                                alt="" style="width: 100%;" onclick="showBigImage(this.src)"
-                                                class="mini-img">
+                                            <img src="resume/work/bizpotential/led_service_api/led_api_1.png" alt=""
+                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_2.png"
-                                                alt="" style="width: 100%;" onclick="showBigImage(this.src)"
-                                                class="mini-img">
+                                            <img src="resume/work/bizpotential/led_service_api/led_api_2.png" alt=""
+                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_3.png"
-                                                alt="" style="width: 100%;" onclick="showBigImage(this.src)"
-                                                class="mini-img">
+                                            <img src="resume/work/bizpotential/led_service_api/led_api_3.png" alt=""
+                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_4.png"
-                                                alt="" style="width: 100%;" onclick="showBigImage(this.src)"
-                                                class="mini-img">
+                                            <img src="resume/work/bizpotential/led_service_api/led_api_4.png" alt=""
+                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_5.png"
-                                                alt="" style="width: 100%;" onclick="showBigImage(this.src)"
-                                                class="mini-img">
+                                            <img src="resume/work/bizpotential/led_service_api/led_api_5.png" alt=""
+                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
                                         </div>
                                         <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_6.png"
-                                                alt="" style="width: 100%;" onclick="showBigImage(this.src)"
-                                                class="mini-img">
+                                            <img src="resume/work/bizpotential/led_service_api/led_api_6.png" alt=""
+                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
                                         </div>
                                     </div>
                                     <br>
@@ -255,8 +308,6 @@
                 </div>
 
             </section>
-
-            <!-- cityvariety -->
             <div class="hr"></div>
             <br>
             <section id="cityvariety" class="work-list" style="display: block;">
@@ -322,74 +373,8 @@
 
             </section>
             <br>
-
         </div>
     </div>
-
-    <style>
-        .image-gallery {
-            text-align: center;
-        }
-
-        .thumbnail {
-            cursor: pointer;
-            max-width: 200px;
-            border: 2px solid #ccc;
-            margin: 10px;
-        }
-
-        .big-image {
-            display: none;
-            max-width: 80%;
-            max-height: 80%;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 999;
-            background-color: #fff;
-            /* border: 1px solid #000; */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            padding: 10px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            background: #fff;
-            border: none;
-        }
-
-        .mini-img {
-            cursor: pointer !important;
-            margin: 3px;
-            border: 1px solid black;
-        }
-    </style>
-
-    <div class="big-image" id="bigImageContainer">
-        <button class="close-btn" onclick="closeBigImage()">X</button>
-        <img id="bigImage" src="" alt="Big Image" style="width: 100%;">
-    </div>
-
-    <script>
-        function showBigImage(imageSrc) {
-            var bigImage = document.getElementById('bigImage');
-            bigImage.src = imageSrc;
-
-            var bigImageContainer = document.getElementById('bigImageContainer');
-            bigImageContainer.style.display = 'block';
-        }
-
-        function closeBigImage() {
-            var bigImageContainer = document.getElementById('bigImageContainer');
-            bigImageContainer.style.display = 'none';
-        }
-    </script>
-
     <style>
         #backToTopBtn {
             /* ซ่อนปุ่มเมื่อไม่ได้เลื่อนลง */

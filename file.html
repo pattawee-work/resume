@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - ไฟล์เอกสาร</title>
     <link rel="icon" href="resume/profile_person.jpg">
-    
+
     <!-- css -->
     <link type="text/css" rel="stylesheet" href="lib/css/font-awesome.min.css">
     <link type="text/css" rel="stylesheet" href="lib/css/ionicons.min.css">
@@ -37,7 +37,6 @@
             </div>
         </div>
     </nav>
-
     <div class="container" style="margin-top: 5em;">
         <div class="section">
 
@@ -94,6 +93,64 @@
             </ul>
         </div>
     </div>
+    <style>
+        #backToTopBtn {
+            /* ซ่อนปุ่มเมื่อไม่ได้เลื่อนลง */
+            display: none;
+            /* วางปุ่มที่ตำแหน่งคงที่ */
+            position: fixed;
+            /* ระยะห่างจากด้านล่าง */
+            bottom: 20px;
+            /* ระยะห่างจากด้านขวา */
+            right: 20px;
+            /* ทำให้ปุ่มอยู่ด้านหน้าสุด */
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            /* สีพื้นหลังของปุ่ม */
+            background-color: #000;
+            /* สีข้อความของปุ่ม */
+            color: white;
+            /* เปลี่ยนเคอร์เซอร์เมื่อชี้ที่ปุ่ม */
+            cursor: pointer;
+            /* ขนาดของปุ่ม */
+            padding: 15px;
+            /* มุมโค้งของปุ่ม */
+            border-radius: 10px;
+        }
+
+        #backToTopBtn:hover {
+            /* สีพื้นหลังเมื่อชี้ที่ปุ่ม */
+            background-color: #555;
+        }
+    </style>
+
+    <button id="backToTopBtn" onclick="backToTop()">Top</button>
+
+    <script>
+        // รับปุ่ม
+        var mybutton = document.getElementById("backToTopBtn");
+
+        // แสดงปุ่มเมื่อเลื่อนลง 20px จากด้านบนของเอกสาร
+        window.onscroll = function () {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // เมื่อผู้ใช้กดที่ปุ่ม เลื่อนกลับไปด้านบนของเอกสาร
+        function backToTop() {
+            document.body.scrollTop = 0; // สำหรับ Safari
+            document.documentElement.scrollTop = 0; // สำหรับ Chrome, Firefox, IE และ Opera
+        }
+    </script>
 </body>
 
 </html>
