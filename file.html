@@ -1,156 +1,159 @@
 <!DOCTYPE html>
-<html lang="th">
+<html data-bs-theme="light" lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - ไฟล์เอกสาร</title>
-    <link rel="icon" href="resume/profile_person.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Resume Pattawee</title>
+    <script>
+        (function() {
 
-    <!-- css -->
-    <link type="text/css" rel="stylesheet" href="lib/css/font-awesome.min.css">
-    <link type="text/css" rel="stylesheet" href="lib/css/ionicons.min.css">
-    <link type="text/css" rel="stylesheet" href="lib/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/css/resume_index.css">
-    <link rel="stylesheet" href="lib/css/resume_font.css">
+            // JavaScript snippet handling Dark/Light mode switching
 
-    <!-- script -->
-    <script src="lib/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="lib/js/bootstrap.min.js"></script>
-    <script src="lib/js/popper.min.js"></script>
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
 
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Athiti.css">
+    <link rel="stylesheet" href="assets/css/Kodchasan.css">
+    <link rel="stylesheet" href="assets/css/Sarabun.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery-baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="index.html">Ps.Resume |</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="university.html">University</a>
-                <a class="nav-item nav-link" href="work.html">Works</a>
-                <a class="nav-item nav-link active" href="file.html">Files</span></a>
+<body style="font-family: Athiti, sans-serif;">
+    <nav class="navbar navbar-expand-md fixed-top bg-body py-3" style="color: var(--bs-warning);">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="index.html"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: rgba(13,110,253,0.81);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-p-square">
+                        <path d="M5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97z"></path>
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"></path>
+                    </svg></span><span style="font-family: Kodchasan, sans-serif;font-weight: bold;">PS</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="university.html" style="font-family: Kodchasan, sans-serif;">University</a></li>
+                    <li class="nav-item"><a class="nav-link" href="work.html" style="font-family: Kodchasan, sans-serif;">Works</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="file.html" style="font-family: Kodchasan, sans-serif;">Files</a></li>
+                </ul>
+                <div class="theme-switcher dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bg-switch);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill mb-1">
+                            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                        </svg></a>
+                    <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                            </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                            </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                                <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                            </svg>Auto</a></div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container" style="margin-top: 5em;">
-        <div class="section">
-
-            <div class="section-title">ไฟล์เอกสาร</div>
-            <h5 style="color: cadetblue;"><u>Resume File</u></h5>
-            <ul>
-                <li>
-                    <a href="https://drive.google.com/drive/folders/1k7Wg06bYsdAwfAoqr_ua457_zMWaIUWV" target="_blank">
-                        📁
-                        [ Google Drive ] Resume PDF, PNG
-                    </a>
-                </li>
-            </ul>
-            <hr>
-
-            <h5 style="color: cadetblue;"><u>วิชา : โครงงานวิจัยทางวิทยาการคอมพิวเตอร์</u></h5>
-            <ul>
-                <li>
-                    <a href="resume/university/0214493_present_power_point.rar" target="_blank" download>
-                        <!-- <i class="fa fa-file-powerpoint-o"></i> -->
-                        📄
-                        [ PPTX ] เอกสารนำเสนอโครงงานวิจัย
-                    </a>
-                    <span class="remark-text">*rar ไฟล์เพื่องานต่อการ Download</span>
-                </li>
-                <li>
-                    <a href="resume/university/0214493_present_pdf.pdf" target="_blank">
-                        <!-- <i class="fa fa-file-pdf-o"></i> -->
-                        📄
-                        [ PDF ] เอกสารนำเสนอโครงงานวิจัย
-                    </a>
-                    <span class="remark-text">*อาจมีข้อมูลผิดเพี้ยนจากการแปลงจาก .pptx เป็น .pdf</span>
-                </li>
-            </ul>
-            <hr>
-
-            <h5 style="color: cadetblue;"><u>การฝึกสหกิจศึกษา</u></h5>
-            <ul>
-                <li>
-                    <a href="resume/university/0214495_report_cooperative_education.pdf" target="_blank">
-                        <!-- <i class="fa fa-file-pdf-o"></i> -->
-                        📄
-                        [ PDF ] เล่มรายงานการฝึกสหกิจ
-                    </a>
-                </li>
-                <li>
-                    <a href="resume/university/0214495_present_cooperative_education.pdf" target="_blank">
-                        <!-- <i class="fa fa-file-pdf-o"></i> -->
-                        📄
-                        [ PDF ] เอกสารนำเสนอการฝึกสหกิจ
-                    </a>
-                    <span class="remark-text">*อาจมีข้อมูลผิดเพี้ยนจากการแปลงจาก .pptx เป็น .pdf</span>
-                </li>
-            </ul>
+    </nav><button id="backToTopBtn" class="btn btn-secondary" type="button" style="position: fixed;bottom: 8%;right: 10px;z-index: 99;display: none;" onclick="backToTop();"><svg class="bi bi-arrow-up d-flex align-items-center" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"></path>
+    </svg></button>
+    <div class="container mt-7">
+        <div class="row">
+            <div class="col">
+                <h2 class="d-flex justify-content-center py-5 py-xl-5">ไฟล์และเอกสาร</h2>
+            </div>
         </div>
     </div>
-    <style>
-        #backToTopBtn {
-            /* ซ่อนปุ่มเมื่อไม่ได้เลื่อนลง */
-            display: none;
-            /* วางปุ่มที่ตำแหน่งคงที่ */
-            position: fixed;
-            /* ระยะห่างจากด้านล่าง */
-            bottom: 20px;
-            /* ระยะห่างจากด้านขวา */
-            right: 20px;
-            /* ทำให้ปุ่มอยู่ด้านหน้าสุด */
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            /* สีพื้นหลังของปุ่ม */
-            background-color: #000;
-            /* สีข้อความของปุ่ม */
-            color: white;
-            /* เปลี่ยนเคอร์เซอร์เมื่อชี้ที่ปุ่ม */
-            cursor: pointer;
-            /* ขนาดของปุ่ม */
-            padding: 15px;
-            /* มุมโค้งของปุ่ม */
-            border-radius: 10px;
-        }
-
-        #backToTopBtn:hover {
-            /* สีพื้นหลังเมื่อชี้ที่ปุ่ม */
-            background-color: #555;
-        }
-    </style>
-
-    <button id="backToTopBtn" onclick="backToTop()">Top</button>
-
-    <script>
-        // รับปุ่ม
-        var mybutton = document.getElementById("backToTopBtn");
-
-        // แสดงปุ่มเมื่อเลื่อนลง 20px จากด้านบนของเอกสาร
-        window.onscroll = function () {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // เมื่อผู้ใช้กดที่ปุ่ม เลื่อนกลับไปด้านบนของเอกสาร
-        function backToTop() {
-            document.body.scrollTop = 0; // สำหรับ Safari
-            document.documentElement.scrollTop = 0; // สำหรับ Chrome, Firefox, IE และ Opera
-        }
-    </script>
+    <div class="container-fluid py-4 py-xl-5">
+        <div class="row">
+            <div class="col-12 col-md-9 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
+                <div class="d-flex align-items-start align-items-md-start align-items-xl-center">
+                    <div class="bs-icon-xl bs-icon-circle bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center me-4 d-inline-block bs-icon" style="background: var(--bs-teal);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icon-tabler-brand-google-drive">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <path d="M12 10l-6 10l-3 -5l6 -10z"></path>
+                            <path d="M9 15h12l-3 5h-12"></path>
+                            <path d="M15 15l-6 -10h6l6 10z"></path>
+                        </svg></div>
+                    <div>
+                        <h4>Resume File</h4><a class="text-decoration-none" href="https://drive.google.com/drive/folders/1k7Wg06bYsdAwfAoqr_ua457_zMWaIUWV" target="_blank" style="color: var(--bg-switch);">[ Google Drive ] Resume PDF, PNG</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Lightbox-Gallery-baguetteBox.min.js"></script>
+    <script src="assets/js/Lightbox-Gallery.js"></script>
+    <script src="assets/js/resume.js"></script>
 </body>
 
 </html>

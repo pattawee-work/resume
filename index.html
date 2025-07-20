@@ -1,205 +1,478 @@
 <!DOCTYPE html>
-<html lang="th">
+<html data-bs-theme="light" lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - Pattawee Sripasom</title>
-    <link rel="icon" href="resume/profile_person.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Resume Pattawee</title>
+    <script>
+        (function() {
 
-    <!-- css -->
-    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/css/resume_index.css">
-    <link rel="stylesheet" href="lib/css/resume_font.css">
+            // JavaScript snippet handling Dark/Light mode switching
 
-    <!-- script -->
-    <script src="lib/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="lib/js/bootstrap.min.js"></script>
-    <script src="lib/js/popper.min.js"></script>
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Athiti.css">
+    <link rel="stylesheet" href="assets/css/Kodchasan.css">
+    <link rel="stylesheet" href="assets/css/Sarabun.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/aos.min.css">
+    <link rel="stylesheet" href="assets/css/animate.min.css">
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery-baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="index.html">Ps.Resume |</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="university.html">University</a>
-                <a class="nav-item nav-link" href="work.html">Works</a>
-                <a class="nav-item nav-link" href="file.html">Files</span></a>
+<body style="font-family: Athiti, sans-serif;">
+    <nav class="navbar navbar-expand-md fixed-top bg-body py-3" style="color: var(--bs-warning);">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="index.html"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: rgba(13,110,253,0.81);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-p-square">
+                        <path d="M5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97z"></path>
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"></path>
+                    </svg></span><span style="font-family: Kodchasan, sans-serif;font-weight: bold;">PS</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="university.html" style="font-family: Kodchasan, sans-serif;">University</a></li>
+                    <li class="nav-item"><a class="nav-link" href="work.html" style="font-family: Kodchasan, sans-serif;">Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="file.html" style="font-family: Kodchasan, sans-serif;">Files</a></li>
+                </ul>
+                <div class="theme-switcher dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bg-switch);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill mb-1">
+                            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                        </svg></a>
+                    <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                            </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                            </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                                <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                            </svg>Auto</a></div>
+                </div>
             </div>
         </div>
-    </nav>
-    <div class="container" style="margin-top: 5em;">
-
-        <div class="header" style="padding-top: 2em;">
+    </nav><button id="backToTopBtn" class="btn btn-secondary" type="button" style="position: fixed;bottom: 8%;right: 10px;z-index: 99;display: none;" onclick="backToTop();"><svg class="bi bi-arrow-up d-flex align-items-center" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"></path>
+    </svg></button>
+    <header class="text-center text-white d-flex mt-6 py-7 masthead" id="about-me" style="background: url(&quot;assets/img/header.webp&quot;) center / cover no-repeat, var(--bs-black);transform: perspective(0px) translate(0px);filter: blur(0px);padding-top: 16px;box-shadow: 0px 0px 12px var(--bs-secondary-color);">
+        <div class="container-fluid my-auto">
             <div class="row">
-                <div class="col-md-4" style="text-align: center;">
-                    <center>
-                        <div class=""
-                            style="border-radius: 50%; width: 170px; box-shadow: 0px 0px 20px 0px;padding: auto;">
-                            <img src="resume/profile_person.jpg" alt="Profile Picture" class="profile-img"
-                                style="padding-top: inherit;">
-                        </div>
-                    </center>
-                    <br>
+                <div class="col-lg-10 mx-auto">
+                    <h1 class="text-uppercase"><strong style="opacity: 0.75;font-family: Kodchasan, sans-serif;font-style: italic;">Pattawee Sripasom</strong></h1><em style="font-family: Kodchasan, sans-serif;opacity: 0.75;"> Full-Stack / Backend Developer</em>
+                    <hr>
                 </div>
-                <div class="col-md-7">
-                    <div class="" style="padding-left: 2em;">
-                        <h1>ปฐวี ศรีประสม</h1>
-                        <h2>Pattawee Sripasom</h2>
-                    </div>
-                    <div class="hr"></div>
-                    <div class="" style="padding-left: 2em;">
-                        <h4>Junior Developer</h4>
-                    </div>
-                    <div class="contact-info">
-                        <p>📞 (+66) 0993901686 &ensp;|&ensp; ✉️ pattawees.work@gmail.com</p>
-                    </div>
+            </div>
+            <div class="col-lg-8 mx-auto">
+                <p class="mb-3 pulse animated text-faded">สวัสดีครับ ผมชื่อ เค เป็นโปรแกรมเมอร์ที่หลงใหลในการเขียนโค้ดและพัฒนาระบบ <br>ชื่นชอบในการพัฒนาระบบหลังบ้านเป็นพิเศษ<br>มีประสบการทำงานกว่า 3 ปี&nbsp;<br>พร้อมที่จะปรับตัว เรียนรู้ เครื่องมือและเทคโนโลยีใหม่ ๆ เพื่อพัฒนาทักษะและประสบการณ์</p><a class="btn btn-dark btn-xl js-scroll-trigger" role="button" href="#contact-me" style="background: var(--bs-border-color-translucent);backdrop-filter: blur(31px);-webkit-backdrop-filter: blur(31px);border-color: rgba(255,255,255,0.24);">Contact Me</a>
+            </div>
+        </div>
+    </header>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="d-flex justify-content-center py-5 py-xl-5">ประวัติการศึกษา</h2>
                 </div>
             </div>
         </div>
-
-        <hr>
-
-        <div class="section">
-            <div class="row" style="padding-left: 1em;">
-                <div class="col-md-4">
-                    <div class="section-title">ประวัติการศึกษา</div>
-                    <p>
-                        <b>วิทยาการคอมพิวเตอร์</b><br>มหาวิทยาลัยทักษิณ วิทยาเขตพัทลุง<br>GPA 3.49 &ensp;|&ensp;
-                        2018-2022
-                    </p>
-                    <br>
+        <div class="container d-flex flex-column align-items-center py-4 py-xl-5">
+            <div class="row gy-4 row-cols-1 row-cols-md-2 w-100" style="max-width: 800px;">
+                <div class="col order-md-first">
+                    <div class="card"><img class="card-img w-100 d-block" data-aos="fade-up" data-aos-duration="300" data-aos-delay="200" src="assets/img/tsu/tsu_logo.webp">
+                        <div class="card-img-overlay text-center d-flex flex-column justify-content-center align-items-center p-4"></div>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <div class="section-title">Profile</div>
-                    <p class="profile-text">&ensp;&ensp;สวัสดีครับ ผมชื่อ นายปฐวี ศรีประสม ชื่อเล่น เค
-                        ผมมีประสบการณ์ทำงานประมาณ 2+ ปี โดยที่ผ่านมา ได้รับมอบหมายให้ทำงานในตำแหน่ง PHP
-                        โปรแกรมเมอร์เป็นหลัก โดยรูปแบบมีทั้งการใช้ Framework และการเขียนแบบ Pure
-                        ผมมีความชอบในการเขียนโค้ด และพร้อมที่จะปรับตัว เรียนรู้ เครื่องมือและเทคโนโลยีใหม่ ๆ
-                        เพื่อพัฒนาทักษะและประสบการณ์</p>
+                <div class="col d-flex d-md-flex justify-content-center align-self-center order-first justify-content-md-start align-items-md-end order-md-1">
+                    <div style="width: 80%;">
+                        <h3 class="text-start me-0 pe-0" data-aos="fade" data-aos-duration="350" style="font-family: Kodchasan, sans-serif;">Thaksin University<br>Phatthalung Campus</h3>
+                        <p class="text-start mt-3" data-aos="fade" data-aos-duration="300" data-aos-offset="300">สาขา วิทยาการคอมพิวเตอร์<br>GPA 3.49&nbsp;|&nbsp;2018-2022</p>
+                    </div>
+                </div>
+                <div class="col align-self-start order-md-2">
+                    <div class="card"><img class="card-img w-100 d-block" data-aos="fade-up" data-aos-delay="300" src="assets/img/tsu/tsu_img.webp">
+                        <div class="card-img-overlay text-center p-4"></div>
+                    </div>
+                </div>
+                <div class="col order-md-2">
+                    <div class="card"><img class="card-img w-100 d-block" data-aos="fade-up" data-aos-delay="150" src="assets/img/tsu/tsu_congratulations.webp"></div>
                 </div>
             </div>
-
-            <div class="row" style="padding-left: 1em;">
-
-                <div class="col-md-4">
-                    <div class="section-title">ทักษะ / ความชำนาญ</div>
-                    <ul>
-                        <li>PHP</li>
-                        <li>Laravel</li>
-                        <li>Node.js</li>
-                        <li>JavaScript</li>
-                        <li>Jquery</li>
-                        <li>HTML</li>
-                        <li>MY SQL</li>
-                        <li>MSSQL</li>
-                        <li>ORACLE</li>
-                        <li>DB2</li>
-                        <li>Bootstrap</li>
-                        <li>Django (พื้นฐาน)</li>
-                        <li>C Language</li>
-                    </ul>
-
-                    <br>
-
-                    <div class="section-title">เครื่องมือที่ใช้</div>
-                    <ul>
-                        <li>Visual Studio Code</li>
-                        <li>Gitlab</li>
-                        <li>GitHub</li>
-                        <li>Postman</li>
-                    </ul>
-                </div>
-
-                <div class="col-md-7">
-                    <div class="section-title">Work Experience</div>
-                    <p class="text text-danger" style="font-size: 12px;">*ดูรายละเอียดเพิ่มเติมได้ที่ tab Works
-                        หรือกดที่ชื่อบริษัท</p>
-                    <h6><a href="work.html#bizpotential">Bizpotential co. ltd &ensp; (2022 - 2024)</a></h6>
-                    <ul>
-                        <li>ทำระบบประเมินพนักงาน (KPI และ Competency)</li>
-                        <li>ทำระบบแสดงสลิปเงินเดือน</li>
-                        <li>ทำระบบเกี่ยวกับการยื่นเรื่อง และการจัดการข้อมูลต่าง ๆ</li>
-                        <li>ทำระบบบริการ API</li>
-                    </ul>
-
-                    <h6><a href="work.html#cityvariety">City Variety Corporation co. ltd &ensp; (2022)</a></h6>
-                    <ul>
-                        <li>แก้ไขการแสดงผลเว็บไซต์หน่วยงานต่าง ๆ</li>
-                        <li>เพิ่มระบบจัดการหลังบ้าน เช่น ระบบเอกสาร ข่าวประชาสัมพันธ์ ฯลฯ</li>
-                        <li>Mobile App ใช้ภายในองค์กร (Flutter + Dart)</li>
-                    </ul>
-                </div>
-
-            </div>
-
         </div>
-
     </div>
-    <style>
-        #backToTopBtn {
-            /* ซ่อนปุ่มเมื่อไม่ได้เลื่อนลง */
-            display: none;
-            /* วางปุ่มที่ตำแหน่งคงที่ */
-            position: fixed;
-            /* ระยะห่างจากด้านล่าง */
-            bottom: 20px;
-            /* ระยะห่างจากด้านขวา */
-            right: 20px;
-            /* ทำให้ปุ่มอยู่ด้านหน้าสุด */
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            /* สีพื้นหลังของปุ่ม */
-            background-color: #000;
-            /* สีข้อความของปุ่ม */
-            color: white;
-            /* เปลี่ยนเคอร์เซอร์เมื่อชี้ที่ปุ่ม */
-            cursor: pointer;
-            /* ขนาดของปุ่ม */
-            padding: 15px;
-            /* มุมโค้งของปุ่ม */
-            border-radius: 10px;
-        }
-
-        #backToTopBtn:hover {
-            /* สีพื้นหลังเมื่อชี้ที่ปุ่ม */
-            background-color: #555;
-        }
-    </style>
-
-    <button id="backToTopBtn" onclick="backToTop()">Top</button>
-
-    <script>
-        // รับปุ่ม
-        var mybutton = document.getElementById("backToTopBtn");
-
-        // แสดงปุ่มเมื่อเลื่อนลง 20px จากด้านบนของเอกสาร
-        window.onscroll = function () {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // เมื่อผู้ใช้กดที่ปุ่ม เลื่อนกลับไปด้านบนของเอกสาร
-        function backToTop() {
-            document.body.scrollTop = 0; // สำหรับ Safari
-            document.documentElement.scrollTop = 0; // สำหรับ Chrome, Firefox, IE และ Opera
-        }
-    </script>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2 class="d-flex justify-content-center py-5 py-xl-5">ประวัติการทำงาน</h2>
+                </div>
+            </div>
+        </div>
+        <section class="py-2 py-xl-5" data-aos="fade-up">
+            <div class="container">
+                <div class="border rounded border-0 border-dark overflow-hidden" style="background: var(--bg-bookengine);box-shadow: 0px 0px 15px #0066ff7b;">
+                    <div class="row g-0 d-flex align-items-center">
+                        <div class="col col-md-6 d-flex justify-content-center p-2" style="min-height: 250px;">
+                            <div style="width: 250px;height: 250px;background: url(&quot;assets/img/logo_company/logo_bookengine.webp&quot;) center center / contain no-repeat;"></div>
+                        </div>
+                        <div class="col-md-6 px-2">
+                            <div>
+                                <h2 class="fw-bold mt-4 mb-3">Bookengine Dot Com (Thailand) co. ltd (2024 - now)</h2>
+                                <ul class="mb-4">
+                                    <li>ระบบยืมคืนของ (พนักงาน - ลูกค้า)</li>
+                                    <li>ระบบขออนุญาต / ร้องขอ / ลาต่าง ๆ</li>
+                                    <li>API และการ Export ไฟล์</li>
+                                </ul>
+                                <div class="mb-3"><a class="btn btn-light btn-lg border" role="button" href="work.html#work_bookengine">รายละเอียด</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-2 py-xl-5" data-aos="fade-up">
+            <div class="container">
+                <div class="border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 15px #ff951876;">
+                    <div class="row g-0 d-flex align-items-center">
+                        <div class="col d-flex justify-content-center p-2" style="min-height: 250px;">
+                            <div style="width: 250px;background: center center / contain no-repeat;height: 250px;"><img class="object-fit-scale d-flex w-100 h-100 mt-0" src="assets/img/logo_company/logo_bizpotential.webp" width="325" height="307" style="filter: drop-shadow(0 0 20px #fff);"></div>
+                        </div>
+                        <div class="col-md-6 px-2">
+                            <div class="px-2">
+                                <h2 class="fw-bold mt-4 mb-3">Bizpotential co. ltd&nbsp; (2022 - 2024)</h2>
+                                <ul class="mb-4">
+                                    <li>ทำระบบประเมินพนักงาน (KPI และ Competency)</li>
+                                    <li>ทำระบบเกี่ยวกับการยื่นเรื่อง และการจัดการข้อมูลต่าง ๆ</li>
+                                    <li>ทำระบบแสดงสลิปเงินเดือน</li>
+                                    <li>ทำระบบบริการ API</li>
+                                </ul>
+                                <div class="mb-3"><a class="btn btn-light btn-lg border" role="button" href="work.html#work_bizpotential">รายละเอียด</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="py-2 py-xl-5" data-aos="fade-up">
+            <div class="container">
+                <div class="border rounded border-0 border-dark overflow-hidden" style="box-shadow: 0px 0px 15px #0066ff7b;">
+                    <div class="row g-0 d-flex align-items-center">
+                        <div class="col d-flex justify-content-center p-2" style="min-height: 250px;">
+                            <div style="width: 250px;background: url(&quot;assets/img/logo_company/logo_cityvariety.webp&quot;) center center / contain no-repeat;height: 250px;"></div>
+                        </div>
+                        <div class="col-md-6 px-2">
+                            <div>
+                                <h2 class="fw-bold mt-4 mb-3">City Variety Corporation&nbsp;co. ltd&nbsp;(2022)</h2>
+                                <ul class="mb-4">
+                                    <li>แก้ไขการแสดงผลเว็บไซต์หน่วยงานต่าง ๆ</li>
+                                    <li>เพิ่มระบบจัดการหลังบ้าน เช่น ระบบเอกสาร ข่าวประชาสัมพันธ์ ฯลฯ</li>
+                                    <li>Mobile App ใช้ภายในองค์กร (Flutter + Dart)</li>
+                                </ul>
+                                <div class="mb-3"><a class="btn btn-light btn-lg border" role="button" href="work.html#work_city_variety">รายละเอียด</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="container py-4 py-xl-5">
+        <div class="row mt-4 mb-2">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>Language / Framework</h2>
+                <p style="font-family: Kodchasan, sans-serif;">ภาษาหรือเฟรมเวิร์คที่เคยใช้งานและใช้ในการพัฒนาระบบ</p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded bs-icon-primary d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon" style="background: rgba(13,110,253,0);"><img class="img-fluid border rounded d-flex align-items-center p-2" width="512" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/php.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="overflow-hidden mt-1 mb-0" style="display: block;">PHP</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="497" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/laravel.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Laravel</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="200" height="200" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/codeignitor.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">CodeIgniter</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="rounded img-fluid border d-flex align-items-center p-2" width="512" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/javascript.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">JavaScript</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="485" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/jquery.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Jquery</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="512" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/nodejs.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Node.js</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="512" height="442" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/vue.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Vue.js</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="512" height="510" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/nestjs.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Nest.js</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="512" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/9073320_nextjs_icon.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Next.js</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="512" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/bootstrap-icon-512x512-f3dudm5z.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Bootstrap</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="img-fluid border rounded d-flex align-items-center p-2" width="480" height="480" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/icons8-tailwindcss-480.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">TailwindCSS</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4 py-xl-5">
+        <div class="row mt-4 mb-2">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>Database</h2>
+                <p style="font-family: Kodchasan, sans-serif;">ฐานข้อมูลที่เคยใช้งานและใช้ในการพัฒนาระบบ</p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded bs-icon-primary border d-flex flex-shrink-0 justify-content-center align-items-center p-2 d-inline-block bs-icon" style="background: rgba(13,110,253,0);"><img class="img-fluid d-flex align-items-center" width="512" height="266" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/mysql.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="overflow-hidden mt-1 mb-0" style="display: block;">MySql</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded border d-flex flex-shrink-0 justify-content-center align-items-center p-2 d-inline-block bs-icon"><img class="img-fluid d-flex align-items-center" width="512" height="68" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/oracle.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Oracle</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex align-items-center p-3">
+                    <div class="bs-icon-lg bs-icon-rounded border d-flex flex-shrink-0 justify-content-center align-items-center p-2 d-inline-block bs-icon"><img class="img-fluid d-flex align-items-center" width="488" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/db_mssql.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">MSSQL</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded border d-flex flex-shrink-0 justify-content-center align-items-center d-inline-block bs-icon"><img class="rounded img-fluid d-flex align-items-center" width="500" height="500" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/db2.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">DB2</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-4 py-xl-5">
+        <div class="row mt-4 mb-2">
+            <div class="col-md-8 col-xl-6 text-center mx-auto">
+                <h2>Tools</h2>
+                <p style="font-family: Kodchasan, sans-serif;">เครื่องมือ โปรแกรมต่าง ๆ ที่เคยใช้ในการพัฒนาระบบ</p>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-2 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded bs-icon-primary border d-flex flex-shrink-0 justify-content-center align-items-center p-2 d-inline-block bs-icon" style="background: rgba(13,110,253,0);"><img class="img-fluid d-flex align-items-center" width="512" height="508" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/vscode.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="overflow-hidden mt-1 mb-0" style="display: block;">VSCODE</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded border d-flex flex-shrink-0 justify-content-center align-items-center p-2 d-inline-block bs-icon"><img class="img-fluid d-flex align-items-center" width="407" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/sourcetree.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">Sourcetree</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded border d-flex flex-shrink-0 justify-content-center align-items-center p-2 d-inline-block bs-icon"><img class="img-fluid d-flex align-items-center" width="512" height="471" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/gitlab.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">GitLab</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-sm-4 col-md-3 col-lg-3 col-xl-3 col-xxl-3 d-flex mt-1">
+                <div class="d-flex p-3">
+                    <div class="bs-icon-lg bs-icon-rounded border d-flex flex-shrink-0 justify-content-center align-items-center p-2 d-inline-block bs-icon"><img class="rounded img-fluid d-flex align-items-center" width="497" height="512" data-aos="zoom-in" data-aos-duration="500" src="assets/img/tools/postman.webp"></div>
+                    <div class="d-flex align-items-center px-2">
+                        <h6 class="mt-1 mb-0">PostMan</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="container py-4 py-xl-5" id="contact-me">
+            <div class="row mb-5">
+                <div class="col-md-8 col-xl-6 text-center mx-auto">
+                    <h2>Contact Me</h2>
+                </div>
+            </div>
+            <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-lg-3 d-flex justify-content-center">
+                <div class="col-9 col-md-5 col-lg-4 col-xl-3 d-flex justify-content-start">
+                    <div class="d-flex flex-column justify-content-center">
+                        <div class="d-flex justify-content-start"><img class="rounded-circle object-fit-cover flex-shrink-0 me-3" width="50" height="50" src="assets/img/icons_other/icon_mail.webp">
+                            <div>
+                                <p class="fw-bold mb-0">EMAIL</p>
+                                <p class="text-muted mb-0">pattawees.work@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="card border-0 shadow-none d-flex justify-content-start">
+                            <div class="card-body d-flex align-items-center p-0"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-9 col-md-4 col-lg-3 col-xl-3 d-flex justify-content-start">
+                    <div class="d-flex flex-column justify-content-center align-items-center">
+                        <div class="d-flex"><img class="rounded-circle object-fit-cover flex-shrink-0 me-3" width="50" height="50" src="assets/img/icons_other/icon_phone.webp">
+                            <div>
+                                <p class="fw-bold mb-0">PHONE</p>
+                                <p class="text-muted mb-0">(+66) 0993901686</p>
+                            </div>
+                        </div>
+                        <div class="card border-0 shadow-none">
+                            <div class="card-body d-flex align-items-center p-0"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/aos.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Lightbox-Gallery-baguetteBox.min.js"></script>
+    <script src="assets/js/Lightbox-Gallery.js"></script>
+    <script src="assets/js/resume.js"></script>
 </body>
 
 </html>

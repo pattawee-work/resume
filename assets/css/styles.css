@@ -1,0 +1,27 @@
+:root[data-bs-theme=light] {
+  --bg-bookengine: #ffffff;
+  --bg-bizpotential: #ffffff;
+  --bg-cityvariety: #ffffff;
+  --bg-switch: black;
+}
+
+:root[data-bs-theme=dark] {
+  --bg-bookengine: rgba(255,255,255,0);
+  --bg-bizpotential: rgba(53,58,64,0.34);
+  --bg-cityvariety: #ffffff;
+  --bg-switch: white;
+}
+
+@media (min-width:768px) {
+  .theme-switcher .dropdown-menu[data-bs-popper] {
+    top: 100%;
+    left: unset;
+    right: 10%;
+    margin-top: var(--bs-dropdown-spacer);
+  }
+}
+
+.text-indent {
+  text-indent: 2em;
+}
+

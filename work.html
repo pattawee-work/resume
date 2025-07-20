@@ -1,438 +1,352 @@
 <!DOCTYPE html>
-<html lang="th">
+<html data-bs-theme="light" lang="th">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - ประวัติการทำงาน</title>
-    <link rel="icon" href="resume/profile_person.jpg">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Resume Pattawee</title>
+    <script>
+        (function() {
 
-    <!-- css -->
-    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/css/resume_index.css">
-    <link rel="stylesheet" href="lib/css/resume_font.css">
+            // JavaScript snippet handling Dark/Light mode switching
 
-    <!-- script -->
-    <script src="lib/js/jquery-3.4.1.slim.min.js"></script>
-    <script src="lib/js/bootstrap.min.js"></script>
-    <script src="lib/js/popper.min.js"></script>
+            const getStoredTheme = () => localStorage.getItem('theme');
+            const setStoredTheme = theme => localStorage.setItem('theme', theme);
+            const forcedTheme = document.documentElement.getAttribute('data-bss-forced-theme');
+
+            const getPreferredTheme = () => {
+
+                if (forcedTheme) return forcedTheme;
+
+                const storedTheme = getStoredTheme();
+                if (storedTheme) {
+                    return storedTheme;
+                }
+
+                const pageTheme = document.documentElement.getAttribute('data-bs-theme');
+
+                if (pageTheme) {
+                    return pageTheme;
+                }
+
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            const setTheme = theme => {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            }
+
+            setTheme(getPreferredTheme());
+
+            const showActiveTheme = (theme, focus = false) => {
+                const themeSwitchers = [].slice.call(document.querySelectorAll('.theme-switcher'));
+
+                if (!themeSwitchers.length) return;
+
+                document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                    element.classList.remove('active');
+                    element.setAttribute('aria-pressed', 'false');
+                });
+
+                for (const themeSwitcher of themeSwitchers) {
+
+                    const btnToActivate = themeSwitcher.querySelector('[data-bs-theme-value="' + theme + '"]');
+
+                    if (btnToActivate) {
+                        btnToActivate.classList.add('active');
+                        btnToActivate.setAttribute('aria-pressed', 'true');
+                    }
+                }
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                const storedTheme = getStoredTheme();
+                if (storedTheme !== 'light' && storedTheme !== 'dark') {
+                    setTheme(getPreferredTheme());
+                }
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                showActiveTheme(getPreferredTheme());
+
+                document.querySelectorAll('[data-bs-theme-value]')
+                    .forEach(toggle => {
+                        toggle.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const theme = toggle.getAttribute('data-bs-theme-value');
+                            setStoredTheme(theme);
+                            setTheme(theme);
+                            showActiveTheme(theme);
+                        })
+                    })
+            });
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Athiti.css">
+    <link rel="stylesheet" href="assets/css/Kodchasan.css">
+    <link rel="stylesheet" href="assets/css/Sarabun.css">
+    <link rel="stylesheet" href="assets/css/bss-overrides.css">
+    <link rel="stylesheet" href="assets/css/Lightbox-Gallery-baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="index.html">Ps.Resume |</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="university.html">University</a>
-                <a class="nav-item nav-link active" href="work.html">Works</a>
-                <a class="nav-item nav-link" href="file.html">Files</span></a>
+<body style="font-family: Athiti, sans-serif;">
+    <nav class="navbar navbar-expand-md fixed-top bg-body py-3" style="color: var(--bs-warning);">
+        <div class="container"><a class="navbar-brand d-flex align-items-center" href="index.html"><span class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon" style="background: rgba(13,110,253,0.81);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-p-square">
+                        <path d="M5.5 4.002h2.962C10.045 4.002 11 5.104 11 6.586c0 1.494-.967 2.578-2.55 2.578H6.784V12H5.5zm2.77 4.072c.893 0 1.419-.545 1.419-1.488s-.526-1.482-1.42-1.482H6.778v2.97z"></path>
+                        <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1z"></path>
+                    </svg></span><span style="font-family: Kodchasan, sans-serif;font-weight: bold;">PS</span></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="university.html" style="font-family: Kodchasan, sans-serif;">University</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="work.html" style="font-family: Kodchasan, sans-serif;">Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="file.html" style="font-family: Kodchasan, sans-serif;">Files</a></li>
+                </ul>
+                <div class="theme-switcher dropdown"><a class="dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" href="#" style="color: var(--bg-switch);"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill mb-1">
+                            <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                        </svg></a>
+                    <div class="dropdown-menu"><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="light"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-sun-fill opacity-50 me-2">
+                                <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+                            </svg>Light</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="dark"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-moon-stars-fill opacity-50 me-2">
+                                <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278"></path>
+                                <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+                            </svg>Dark</a><a class="dropdown-item d-flex align-items-center" href="#" data-bs-theme-value="auto"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-circle-half opacity-50 me-2">
+                                <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"></path>
+                            </svg>Auto</a></div>
+                </div>
             </div>
         </div>
-    </nav>
-    <style>
-        .image-gallery {
-            text-align: center;
-        }
-
-        .thumbnail {
-            cursor: pointer;
-            max-width: 200px;
-            border: 2px solid #ccc;
-            margin: 10px;
-        }
-
-        .big-image {
-            display: none;
-            max-width: 80%;
-            max-height: 80%;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 999;
-            background-color: #fff;
-            /* border: 1px solid #000; */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            padding: 10px;
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            background: #fff;
-            border: none;
-        }
-
-        .mini-img {
-            cursor: pointer !important;
-            margin: 3px;
-            border: 1px solid black;
-        }
-    </style>
-
-
-    <div class="big-image" id="bigImageContainer">
-        <button class="close-btn" onclick="closeBigImage()">X</button>
-        <img id="bigImage" src="" alt="Big Image" style="width: 100%;">
-    </div>
-
-    <script>
-        function showBigImage(imageSrc) {
-            var bigImage = document.getElementById('bigImage');
-            bigImage.src = imageSrc;
-
-            var bigImageContainer = document.getElementById('bigImageContainer');
-            bigImageContainer.style.display = 'block';
-        }
-
-        function closeBigImage() {
-            var bigImageContainer = document.getElementById('bigImageContainer');
-            bigImageContainer.style.display = 'none';
-        }
-    </script>
-    <div class="container" style="margin-top: 5em;">
-        <div class="section">
-            <div class="section-title">ประวัติการทำงานที่ผ่านมา</div>
-            <ul>
-                <li><a href="#bizpotential">บริษัท บิซโพเทนเชียล จำกัด</a></li>
-                <li><a href="#cityvariety">บริษัท ซิตี้วาไรตี้ คอร์เปอเรชั่น จำกัด (Contract)</a></li>
-            </ul>
-            <div class="hr"></div>
-            <br>
-            <section id="bizpotential" class="work-list" style="display: block;">
-
-                <h5 style="color: cadetblue;"><u>บริษัท บิซโพเทนเชียล จำกัด</u></h5>
-
-                <span>&ensp;&ensp;&ensp;<b>ตั้งอยู่ที่</b> 807/1 ถ. พระรามที่ 3 แขวงบางโพงพาง เขตยานนาวา กรุงเทพมหานคร
-                    10120</span><br>
-
-                <span>&ensp;&ensp;&ensp;<b>รูปแบบการจ้าง : </b>พนักงานประจำ</span><br>
-
-                <span>&ensp;&ensp;&ensp;<b>ระยะเวลาการทำงาน : </b>02/05/2565 - 24/05/2567 ( 2 ปี 0 เดือน 23 วัน
-                    )</span><br>
-
-                <p style="padding-top: 10px; text-align: justify;">&ensp;&ensp;&ensp;"บริษัท บิซโพเทนเชียล จำกัด"
-                    เป็นบริษัทพัฒนา
-                    Software ด้าน Web Based Application พัฒนาระบบตามความต้องการของผู้ใช้งาน โดยให้บริการทั้งราชการ
-                    รัฐวิสาหกิจ
-                    สถาบันการศึกษา และเอกชน ปัจจุบันมีโครงการที่จัดทำแล้วกว่า 800 โครงการ ก่อตั้งเมื่อวันที่ 16 พฤษภาคม
-                    2543
-                    โดยคุณวิทูร หวังสงวนกิจ (ปัจจุบันดำรงตำแหน่ง กรรมการผู้จัดการ)
-                </p>
-
-                <div class="row">
-
-                    <div class="col-md-12">
-
-                        <div class="section">
-
-                            <div class="section-title-work">&ensp;&ensp;&ensp;งานที่ได้รับมอบหมาย</div>
-
-                            <ol>
-
-                                <li>
-                                    ระบบยื่นคำร้องทางอิเล็กทรอนิกส์ E-Filing กรมบังคับคดี
-                                    <p>&ensp;&ensp;&ensp;หน้าที่ที่ได้รับมอบหมายคือ การสร้าง แก้ไข ตรวจสอบและปรับเปลี่ยน
-                                        หน้าจอแสดงผล
-                                        ฟอร์มบันทึกข้อมูล ของคำร้องต่าง ๆ ตามประเภทของคำร้องหรือคดีที่ตาม PM หรือ BA
-                                        แจ้ง</p>
-
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/efiling/efiling_1.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/efiling/efiling_2.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/efiling/efiling_3.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                    </div>
-                                    <div class="row" style="padding-top: 5px;">
-                                        <div class="col-md-1"></div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/efiling/efiling_4.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/efiling/efiling_5.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-1"></div>
-                                    </div>
-                                    <br>
-                                </li>
-
-                                <li>
-                                    ระบบประเมิน KPI และ Competency กรมประชาสัมพันธ์
-                                    <p style="text-align: justify;">&ensp;&ensp;&ensp;หน้าที่ที่ได้รับมอบหมายคือ
-                                        ทำระบบแบบประเมินพนักงานราชการ ลูกจ้างชั่วคราว
-                                        และพนักงานราชการ โดยแบบประเมินจะประกอบไปด้วยการประเมิน
-                                        ดัชนีชี้วัดผลงานหรือความสำเร็จของงาน (KPI) และสมรรถนะการแสดงออกในเชิงพฤติกรรม
-                                        เพื่อทำงานให้ประสบผลสำเร็จ (Competency)</p>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/prd/prd_pms_1.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/prd/prd_pms_2.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/prd/prd_pms_3.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/prd/prd_pms_4.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/prd/prd_pms_5.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/prd/prd_pms_6.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <p class="remark-text">*ทำระบบแบบประเมินคล้ายกันที่ <br>
-                                        &ensp;&ensp;&ensp;กองทุนพัฒนาผู้ประกอบการเทคโนโลยีและนวัตกรรม ( TEDFUND ) <br>
-                                        &ensp;&ensp;&ensp;สำนักงานบริหารกองทุนเพื่อส่งเสริมการอนุรักษ์พลังงาน (
-                                        ENCONFUND )
-                                    </p>
-                                </li>
-
-                                <li>
-                                    ระบบนำเข้าและแสดงสลิปเงินเดือน / ระบบจัดการผู้ใช้งาน กรมส่งเสริมอุตสาหกรรม
-                                    <p style="text-align: justify;">
-                                        &ensp;&ensp;&ensp;<b>ระบบนำเข้าและแสดงสลิปเงินเดือน</b>
-                                        หน้าที่ที่ได้รับมอบหมายคือ
-                                        ทำระบบโดยมีกระบวนการคืออ่านไฟล์สลิปเงินเดือนที่ทางเจ้าหน้าที่นำเข้าสู่ระบบ
-                                        และทำการ insert
-                                        เข้าสู่ระบบ และจากนั้น
-                                        นำข้อมูลไปแสดงผลที่หน้าแสดงสลิปเงินเดือนของผู้ใช้งานแต่ละคน
-                                        โดยปรับแก้การแสดงผลตามที่ฝ่ายออกแบบได้เตรียมไว้แล้ว</p>
-                                    <p style="text-align: justify;">&ensp;&ensp;&ensp;<b>ระบบจัดการผู้ใช้งาน</b>
-                                        หน้าที่ที่ได้รับมอบหมายคือ ทำแบบฟอร์มสมัครสมาชิก
-                                        รวมถึงขั้นตอนการอนุมัติต่าง ๆ รวมไปจนถึงจัดการสิทธิ์เข้าถึงแต่ละระบบ</p>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/dip/dip_1.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/dip/dip_2.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/dip/dip_3.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/dip/dip_4.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/dip/dip_5.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/dip/dip_6.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                    </div>
-                                    <br>
-                                </li>
-
-                                <li>
-                                    ระบบงานบูรณาการฐานข้อมูล กรมบังคับคดี
-                                    <p style="text-align: justify;">&ensp;&ensp;&ensp;หน้าที่ที่ได้รับมอบหมายคือ
-                                        ระบบจัดการผู้ใช้งานและการให้สิทธิ์เข้าใช้งาน API ของผู้ใช้งานแต่ละหน่วยงาน,
-                                        การดึงข้อมูลจากระบบต่าง ๆ
-                                        มารวมกันเพื่อจัดการข้อมูลให้เป็นระเบียบและนำไปใช้งานต่อ
-                                    </p>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_1.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_2.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_3.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_4.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_5.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <img src="resume/work/bizpotential/led_service_api/led_api_6.png" alt=""
-                                                style="width: 100%;" onclick="showBigImage(this.src)" class="mini-img">
-                                        </div>
-                                    </div>
-                                    <br>
-                                </li>
-
-                                <li>
-                                    อื่น ๆ
-                                    <p style="text-align: justify;">&ensp;&ensp;&ensp;มีงานย่อย ๆ อีกหลายโครงการ
-                                        เนื่องจากไม่ได้เป็นโครงการหลัก แต่จะเป็นการไปช่วยเหลืองานโครงการนั้น ๆ เช่น
-                                        ช่วยแก้ไขบัค ปรับแก้ไขการทำงานของระบบบ้างส่วน เป็นต้น</p>
-                                </li>
-                            </ol>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </section>
-            <div class="hr"></div>
-            <br>
-            <section id="cityvariety" class="work-list" style="display: block;">
-
-                <h5 style="color: cadetblue;"><u>บริษัท ซิตี้วาไรตี้ คอร์เปอเรชั่น จำกัด</u></h5>
-
-                <span>&ensp;&ensp;&ensp;<b>ตั้งอยู่ที่ </b>24 ซ.4 หมู่บ้านทานตะวัน ต.คอหงส์ อ.หาดใหญ่ จ.สงขลา
-                    90110</span><br>
-
-                <span>&ensp;&ensp;&ensp;<b>รูปแบบการจ้าง : </b>จ้างรายวัน (เดือนต่อเดือน)</span><br>
-
-                <span>&ensp;&ensp;&ensp;<b>ระยะเวลาการทำงาน : </b>18/03/2565 - 31/05/2565 (2 เดือน 15 วัน)</span>
-
-                <p style="padding-top: 10px; text-align: justify;">&ensp;&ensp;&ensp;"บริษัท ซิตี้วาไรตี้ คอร์เปอเรชั่น
-                    จำกัด"
-                    เป็นบริษัทที่รับออกแบบและพัฒนา Web site รวมถึง Mobile Application ให้กับหน่วยงานทั้งภาครัฐและเอกชน
-                    เปิดดำเนินงานมาแล้วมากกว่า 10 ปี
-                </p>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section">
-                            <div class="section-title-work">&ensp;&ensp;&ensp;งานที่ได้รับมอบหมาย</div>
-                            <p style="text-align: justify;">
-                                &ensp;&ensp;&ensp;แก้ไขการแสดงผลเว็บไซต์และเพิ่มระบบจัดการหลังบ้าน เช่น
-                                ระบบเอกสารสำหรับประชาชน
-                                โดยเจ้าหน้าที่ของหน่วยงาน (ในที่นี้คือ อบต)
-                                เพิ่มข้อมูลจากหลังบ้านและนำมาแสงผลบนหน้าเว็บไซต์
-                                หรือ ระบบข่าวประชาสัมพันธ์ โดยเพิ่มภาพสำหรับการประชาสัมพันธ์จากเจ้าหน้าที่
-                                ที่หลังบ้านเพื่อแสดงประกาศที่หน้าเว็บเมื่อเปิดเข้าหน้าเว็บ
-                                เพื่อเป็นการประชาสัมพันธ์ข่าวสารในช่วงงาน
-                                หรือเทศกาศต่าง เป็นต้น</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <img src="resume/work/cityvariety/work_cityvariety_1.png" alt="" style="width: 100%;"
-                            onclick="showBigImage(this.src)" class="mini-img">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="resume/work/cityvariety/work_cityvariety_2.png" alt="" style="width: 100%;"
-                            onclick="showBigImage(this.src)" class="mini-img">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="resume/work/cityvariety/work_cityvariety_3.png" alt="" style="width: 100%;"
-                            onclick="showBigImage(this.src)" class="mini-img">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="resume/work/cityvariety/work_cityvariety_4.png" alt="" style="width: 100%;"
-                            onclick="showBigImage(this.src)" class="mini-img">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="resume/work/cityvariety/work_cityvariety_5.png" alt="" style="width: 100%;"
-                            onclick="showBigImage(this.src)" class="mini-img">
-                    </div>
-                    <div class="col-md-4">
-                        <img src="resume/work/cityvariety/work_cityvariety_6.png" alt="" style="width: 100%;"
-                            onclick="showBigImage(this.src)" class="mini-img">
-                    </div>
-                </div>
-
-            </section>
-            <br>
+    </nav><button id="backToTopBtn" class="btn btn-secondary" type="button" style="position: fixed;bottom: 8%;right: 10px;z-index: 99;display: none;" onclick="backToTop();"><svg class="bi bi-arrow-up d-flex align-items-center" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5"></path>
+    </svg></button>
+    <div class="container mt-7">
+        <div class="row">
+            <div class="col">
+                <h2 class="d-flex justify-content-center py-5 py-xl-5">ประวัติการทำงานที่ผ่านมา</h2>
+            </div>
         </div>
     </div>
-    <style>
-        #backToTopBtn {
-            /* ซ่อนปุ่มเมื่อไม่ได้เลื่อนลง */
-            display: none;
-            /* วางปุ่มที่ตำแหน่งคงที่ */
-            position: fixed;
-            /* ระยะห่างจากด้านล่าง */
-            bottom: 20px;
-            /* ระยะห่างจากด้านขวา */
-            right: 20px;
-            /* ทำให้ปุ่มอยู่ด้านหน้าสุด */
-            z-index: 99;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            /* สีพื้นหลังของปุ่ม */
-            background-color: #000;
-            /* สีข้อความของปุ่ม */
-            color: white;
-            /* เปลี่ยนเคอร์เซอร์เมื่อชี้ที่ปุ่ม */
-            cursor: pointer;
-            /* ขนาดของปุ่ม */
-            padding: 15px;
-            /* มุมโค้งของปุ่ม */
-            border-radius: 10px;
-        }
-
-        #backToTopBtn:hover {
-            /* สีพื้นหลังเมื่อชี้ที่ปุ่ม */
-            background-color: #555;
-        }
-    </style>
-
-    <button id="backToTopBtn" onclick="backToTop()">Top</button>
-
-    <script>
-        // รับปุ่ม
-        var mybutton = document.getElementById("backToTopBtn");
-
-        // แสดงปุ่มเมื่อเลื่อนลง 20px จากด้านบนของเอกสาร
-        window.onscroll = function () {
-            scrollFunction()
-        };
-
-        function scrollFunction() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                mybutton.style.display = "block";
-            } else {
-                mybutton.style.display = "none";
-            }
-        }
-
-        // เมื่อผู้ใช้กดที่ปุ่ม เลื่อนกลับไปด้านบนของเอกสาร
-        function backToTop() {
-            document.body.scrollTop = 0; // สำหรับ Safari
-            document.documentElement.scrollTop = 0; // สำหรับ Chrome, Firefox, IE และ Opera
-        }
-    </script>
+    <div class="container py-4 py-xl-5">
+        <div class="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+            <div class="col col-sm-6 col-md-4 col-lg-3"><a href="#work_bookengine">
+                    <div class="card"><img class="object-fit-contain card-img-top w-100 d-block p-2" src="assets/img/logo_company/logo_bookengine.webp" style="height: 200px;"></div>
+                </a></div>
+            <div class="col col-sm-6 col-md-4 col-lg-3"><a href="#work_bizpotential">
+                    <div class="card"><img class="object-fit-scale card-img-top w-100 d-block" style="height: 200px;filter: drop-shadow(0 0 20px #fff);" src="assets/img/logo_company/logo_bizpotential.webp"></div>
+                </a></div>
+            <div class="col col-sm-6 col-md-4 col-lg-3"><a href="#work_city_variety">
+                    <div class="card"><img class="object-fit-scale card-img-top w-100 d-block px-3" style="height: 200px;" src="assets/img/logo_company/logo_cityvariety.webp"></div>
+                </a></div>
+        </div>
+    </div>
+    <div class="container" id="work_bookengine" style="scroll-margin-top: 5rem;">
+        <div class="card">
+            <div class="card-body">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="mt-2" style="font-weight: bold;">บริษัท บุ๊คเอนจิ้นดอทคอม (ประเทศไทย) จำกัด</h4>
+                                <h6 class="text-muted mt-4 mb-2"><strong>รูปแบบการจ้าง : Full-Time </strong>พนักงานประจำ</h6>
+                                <h6 class="text-muted mt-auto mb-2"><strong>ระยะเวลาการทำงาน</strong> <strong>:</strong> 03/12/2567 - ปัจจุบัน (&nbsp;<span id="timework_bookengine">Time</span> )</h6>
+                                <h6 class="text-muted mt-auto mb-2"><strong>ที่ตั้ง</strong>&nbsp;<strong>:</strong> 91 หมู่ที่ 1 ต.บางกรวย อ.บางกรวย จ.นนทบุรี&nbsp;11130</h6>
+                                <p class="text-indent"><strong>บริษัท บุ๊คเอนจิ้นดอทคอม (ประเทศไทย) จำกัด</strong>&nbsp;เป็นบริษัทที่จัดทำโปรแกรมเว็บเพจและเครือข่ายตามวัตถุประสงค์ของผู้ใช้ อยู่ในเครือของโรงแรม ทำเกี่ยวกับระบบจองห้องพักออนไลน์ และธุรกิจต่าง ๆ เกี่ยวกับโรงแรม</p>
+                                <section></section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-12 text-start">
+                                <h6 style="font-weight: bold;">งานที่ได้รับมอบหมาย</h6>
+                                <ol>
+                                    <li>ระบบขอออกนอกสถานที่สำหรับพนักงาน</li>
+                                    <li>ระบบยืมของสำหรับพนักงานและลูกค้า</li>
+                                    <li>ระบบขอตำแหน่งพนักงานและผู้สมัคร</li>
+                                    <li>ระบบลา (เพิ่มการตรวจสอบการลายาว และเงื่อนไขการลาประเภทต่าง ๆ )</li>
+                                    <li>api ข้อมูล และ export files&nbsp;</li>
+                                    <li>ปรับปรุง permissions</li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5" id="work_bizpotential" style="scroll-margin-top: 5rem;">
+        <div class="card">
+            <div class="card-body">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="mt-2" style="font-weight: bold;">บริษัท บิซโพเทนเชียล จำกัด</h4>
+                                <h6 class="text-muted mt-4 mb-2"><strong>รูปแบบการจ้าง : Full-Time </strong>พนักงานประจำ</h6>
+                                <h6 class="text-muted mt-auto mb-2"><strong>ระยะเวลาการทำงาน</strong> <strong>:</strong> 02/05/2565 - 24/05/2567 ( <span id="timework_bizpotential">Time</span>&nbsp;)</h6>
+                                <h6 class="text-muted mt-auto mb-2"><strong>ที่ตั้ง</strong>&nbsp;<strong>:</strong> 807/1 ถ. พระรามที่ 3 แขวงบางโพงพาง เขตยานนาวา กรุงเทพมหานคร 10120</h6>
+                                <p class="text-indent"><strong>บริษัท บิซโพเทนเชียล จำกัด</strong> เป็นบริษัทพัฒนา Software ด้าน Web Based Application พัฒนาระบบตามความต้องการของผู้ใช้งาน โดยให้บริการทั้งราชการ รัฐวิสาหกิจ สถาบันการศึกษา และเอกชน ปัจจุบันมีโครงการที่จัดทำแล้วกว่า 800 โครงการ ก่อตั้งเมื่อวันที่ 16 พฤษภาคม 2543 โดยคุณวิทูร หวังสงวนกิจ (ปัจจุบันดำรงตำแหน่ง กรรมการผู้จัดการ)</p>
+                                <section></section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 col-xl-12 text-start">
+                                <h6 style="font-weight: bold;">งานที่ได้รับมอบหมาย</h6>
+                                <ol>
+                                    <li>ระบบยื่นคำร้องทางอิเล็กทรอนิกส์ E-Filing กรมบังคับคดี</li>
+                                    <li>ระบบงานบูรณาการฐานข้อมูล กรมบังคับคดี</li>
+                                    <li>ระบบประเมิน KPI และ Competency กรมประชาสัมพันธ์</li>
+                                    <li>ระบบนำเข้าและแสดงสลิปเงินเดือน / ระบบจัดการผู้ใช้งาน กรมส่งเสริมอุตสาหกรรม</li>
+                                    <li>อื่น ๆ</li>
+                                </ol>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="row mt-4">
+                                    <div class="col">
+                                        <p class="text-indent"><span style="text-decoration: underline;">ระบบยื่นคำร้องทางอิเล็กทรอนิกส์ E-Filing</span><strong> </strong>กรมบังคับคดี&nbsp;หน้าที่ที่ได้รับมอบหมายคือ การสร้าง แก้ไข ตรวจสอบและปรับเปลี่ยน หน้าจอแสดงผล ฟอร์มบันทึกข้อมูล ของคำร้องต่าง ๆ ตามประเภทของคำร้องหรือคดีที่ตาม PM หรือ BA แจ้ง</p>
+                                    </div>
+                                </div>
+                                <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center" data-bss-baguettebox="">
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/efiling/efiling_1.webp"><img class="img-fluid" src="assets/img/work/bizpotential/efiling/efiling_1.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/efiling/efiling_2.webp"><img class="img-fluid" src="assets/img/work/bizpotential/efiling/efiling_2.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/efiling/efiling_3.webp"><img class="img-fluid" src="assets/img/work/bizpotential/efiling/efiling_3.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/efiling/efiling_4.webp"><img class="img-fluid" src="assets/img/work/bizpotential/efiling/efiling_4.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/efiling/efiling_5.webp"><img class="img-fluid" src="assets/img/work/bizpotential/efiling/efiling_5.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row mt-5">
+                                    <div class="col offset-xl-0">
+                                        <p class="text-indent"><span style="font-weight: normal !important; text-decoration: underline;">ระบบงานบูรณาการฐานข้อมูล</span><span style="font-weight: normal !important;"> กรมบังคับคดี&nbsp;หน้าที่ที่ได้รับมอบหมายคือ ระบบจัดการผู้ใช้งานและการให้สิทธิ์เข้าใช้งาน API ของผู้ใช้งานแต่ละหน่วยงาน, การดึงข้อมูลจากระบบต่าง ๆ มารวมกันเพื่อจัดการข้อมูลให้เป็นระเบียบและนำไปใช้งานต่อ</span></p>
+                                    </div>
+                                </div>
+                                <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center" data-bss-baguettebox="">
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/led_service_api/led_api_1.webp"><img class="img-fluid" src="assets/img/work/bizpotential/led_service_api/led_api_1.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/led_service_api/led_api_2.webp"><img class="img-fluid" src="assets/img/work/bizpotential/led_service_api/led_api_2.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/led_service_api/led_api_3.webp"><img class="img-fluid" src="assets/img/work/bizpotential/led_service_api/led_api_3.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/led_service_api/led_api_4.webp"><img class="img-fluid" src="assets/img/work/bizpotential/led_service_api/led_api_4.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/led_service_api/led_api_5.webp"><img class="img-fluid" src="assets/img/work/bizpotential/led_service_api/led_api_5.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/led_service_api/led_api_6.webp"><img class="img-fluid" src="assets/img/work/bizpotential/led_service_api/led_api_6.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row mt-5">
+                                    <div class="col">
+                                        <p class="text-indent"><span style="text-decoration: underline;">ระบบประเมิน KPI และ Competency</span> กรมประชาสัมพันธ์&nbsp;หน้าที่ที่ได้รับมอบหมายคือ ทำระบบแบบประเมินพนักงานราชการ ลูกจ้างชั่วคราว และพนักงานราชการ โดยแบบประเมินจะประกอบไปด้วยการประเมิน ดัชนีชี้วัดผลงานหรือความสำเร็จของงาน (KPI) และสมรรถนะการแสดงออกในเชิงพฤติกรรม เพื่อทำงานให้ประสบผลสำเร็จ (Competency)</p><span class="text-danger">*ทำระบบแบบประเมินคล้ายกันที่</span>
+                                        <ol class="text-danger" type="a">
+                                            <li>กองทุนพัฒนาผู้ประกอบการเทคโนโลยีและนวัตกรรม (TEDFUND)</li>
+                                            <li>สำนักงานบริหารกองทุนเพื่อส่งเสริมการอนุรักษ์พลังงาน (ENCONFUND)</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center" data-bss-baguettebox="">
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/prd/prd_pms_1.webp"><img class="img-fluid" src="assets/img/work/bizpotential/prd/prd_pms_1.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/efiling/efiling_2.webp"><img class="img-fluid" src="assets/img/work/bizpotential/efiling/efiling_2.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/prd/prd_pms_3.webp"><img class="img-fluid" src="assets/img/work/bizpotential/prd/prd_pms_3.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/prd/prd_pms_4.webp"><img class="img-fluid" src="assets/img/work/bizpotential/prd/prd_pms_4.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/prd/prd_pms_5.webp"><img class="img-fluid" src="assets/img/work/bizpotential/prd/prd_pms_5.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/prd/prd_pms_6.webp"><img class="img-fluid" src="assets/img/work/bizpotential/prd/prd_pms_6.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row mt-5">
+                                    <div class="col offset-xl-0">
+                                        <p style="font-weight: bold;text-decoration:  underline;"><span style="font-weight: normal !important;">ระบบนำเข้าและแสดงสลิปเงินเดือน / ระบบจัดการผู้ใช้งาน กรมส่งเสริมอุตสาหกรรม</span></p>
+                                        <ul>
+                                            <li><strong>ระบบนำเข้าและแสดงสลิปเงินเดือน</strong> หน้าที่ที่ได้รับมอบหมายคือ ทำระบบโดยมีกระบวนการคืออ่านไฟล์สลิปเงินเดือนที่ทางเจ้าหน้าที่นำเข้าสู่ระบบ และทำการ insert เข้าสู่ระบบ และจากนั้น นำข้อมูลไปแสดงผลที่หน้าแสดงสลิปเงินเดือนของผู้ใช้งานแต่ละคน โดยปรับแก้การแสดงผลตามที่ฝ่ายออกแบบได้เตรียมไว้แล้ว</li>
+                                            <li><strong>ระบบจัดการผู้ใช้งาน</strong> หน้าที่ที่ได้รับมอบหมายคือ ทำแบบฟอร์มสมัครสมาชิก รวมถึงขั้นตอนการอนุมัติต่าง ๆ รวมไปจนถึงจัดการสิทธิ์เข้าถึงแต่ละระบบ</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center" data-bss-baguettebox="">
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/dip/dip_1.webp"><img class="img-fluid" src="assets/img/work/bizpotential/dip/dip_1.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/dip/dip_2.webp"><img class="img-fluid" src="assets/img/work/bizpotential/dip/dip_2.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/dip/dip_3.webp"><img class="img-fluid" src="assets/img/work/bizpotential/dip/dip_3.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/dip/dip_4.webp"><img class="img-fluid" src="assets/img/work/bizpotential/dip/dip_4.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/dip/dip_5.webp"><img class="img-fluid" src="assets/img/work/bizpotential/dip/dip_5.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col col-md-6 col-lg-4"><a href="assets/img/work/bizpotential/dip/dip_6.webp"><img class="img-fluid" src="assets/img/work/bizpotential/dip/dip_6.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row mt-5">
+                                    <div class="col offset-xl-0">
+                                        <p style="font-weight: bold;text-decoration: underline;"><span style="font-weight: normal !important;">อื่นๆ</span></p>
+                                        <ul>
+                                            <li>มีงานย่อย ๆ อีกหลายโครงการ เนื่องจากไม่ได้เป็นโครงการหลัก แต่จะเป็นการไปช่วยเหลืองานโครงการนั้น ๆ เช่น ช่วยแก้ไขบัค ปรับแก้ไขการทำงานของระบบบางส่วน เป็นต้น</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5" id="work_city_variety" style="scroll-margin-top: 5rem;">
+        <div class="card">
+            <div class="card-body">
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col">
+                                <h4 class="mt-2" style="font-weight: bold;">บริษัท ซิตี้วาไรตี้ คอร์เปอเรชั่น จำกัด</h4>
+                                <h6 class="text-muted mt-4 mb-2"><strong>รูปแบบการจ้าง :&nbsp;Contract</strong>&nbsp;รายวัน (เดือนต่อเดือน)</h6>
+                                <h6 class="text-muted mt-auto mb-2"><strong>ระยะเวลาการทำงาน</strong> <strong>:</strong> 18/03/2565 ถึง 31/05/2565 (&nbsp;<span id="timework_cityvariety">Text</span>&nbsp;)</h6>
+                                <h6 class="text-muted mt-auto mb-2"><strong>ที่ตั้ง</strong>&nbsp;<strong>:</strong> 24 ซ.4 หมู่บ้านทานตะวัน ต.คอหงส์ อ.หาดใหญ่ จ.สงขลา 90110</h6>
+                                <p class="text-indent"><strong>บริษัท ซิตี้วาไรตี้ คอร์เปอเรชั่น จำกัด</strong> เป็นบริษัทที่รับออกแบบและพัฒนา Web site รวมถึง Mobile Application ให้กับหน่วยงานทั้งภาครัฐและเอกชน เปิดดำเนินงานมาแล้วมากกว่า 10 ปี</p>
+                                <section></section>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section>
+                    <div class="container">
+                        <div class="row mb-5">
+                            <div class="col-md-12 col-xl-12 text-start">
+                                <h6><span style="text-decoration: underline;">งานที่ได้รับมอบหมาย</span></h6>
+                                <p class="text-indent">แก้ไขการแสดงผลเว็บไซต์และเพิ่มระบบจัดการหลังบ้าน เช่น ระบบเอกสารสำหรับประชาชน โดยเจ้าหน้าที่ของหน่วยงาน (ในที่นี้คือ อบต) เพิ่มข้อมูลจากหลังบ้านและนำมาแสงผลบนหน้าเว็บไซต์ หรือ ระบบข่าวประชาสัมพันธ์ โดยเพิ่มภาพสำหรับการประชาสัมพันธ์จากเจ้าหน้าที่ ที่หลังบ้านเพื่อแสดงประกาศที่หน้าเว็บเมื่อเปิดเข้าหน้าเว็บ เพื่อเป็นการประชาสัมพันธ์ข่าวสารในช่วงงาน หรือเทศกาศต่าง เป็นต้น</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <div class="row gx-2 gy-2 row-cols-1 row-cols-md-2 row-cols-xl-3" data-bss-baguettebox="">
+                                    <div class="col"><a href="assets/img/work/cityvariety/work_cityvariety_6.webp"><img class="img-fluid" src="assets/img/work/cityvariety/work_cityvariety_6.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col"><a href="assets/img/work/cityvariety/work_cityvariety_1.webp"><img class="img-fluid" src="assets/img/work/cityvariety/work_cityvariety_1.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col"><a href="assets/img/work/cityvariety/work_cityvariety_4.webp"><img class="img-fluid" src="assets/img/work/cityvariety/work_cityvariety_4.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col"><a href="assets/img/work/cityvariety/work_cityvariety_2.webp"><img class="img-fluid" src="assets/img/work/cityvariety/work_cityvariety_2.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col"><a href="assets/img/work/cityvariety/work_cityvariety_3.webp"><img class="img-fluid" src="assets/img/work/cityvariety/work_cityvariety_3.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                    <div class="col"><a href="assets/img/work/cityvariety/work_cityvariety_5.webp"><img class="img-fluid" src="assets/img/work/cityvariety/work_cityvariety_5.webp" style="border-style: solid;border-color: rgba(13,110,253,0.1);"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div></div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/bs-init.js"></script>
+    <script src="assets/js/Lightbox-Gallery-baguetteBox.min.js"></script>
+    <script src="assets/js/Lightbox-Gallery.js"></script>
+    <script src="assets/js/resume.js"></script>
 </body>
 
 </html>
